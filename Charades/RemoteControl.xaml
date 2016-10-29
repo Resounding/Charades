@@ -1,0 +1,86 @@
+﻿<Window x:Class="Charades.RemoteControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Charades"
+        mc:Ignorable="d"
+        Title="RemoteControl" Height="300" Width="400"
+        d:DataContext="{d:DesignInstance local:ViewModel}">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="Margin" Value="10" />
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Start" Command="{Binding StartCommand}" />
+            <Button Content="Pause" Command="{Binding PauseCommand}" />
+            <Button Content="Reset" Command="{Binding ResetCommand}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="Margin" Value="10" />
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Team A" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamA}" />
+            <Button Content="Team B" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamB}" />
+            <Button Content="Team C" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamC}" />
+            <Button Content="Team D" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamD}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                    <Setter Property="Padding" Value="0 10" />
+                    <Setter Property="Margin" Value="0 10" />
+                </Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="Margin" Value="10" />
+                </Style>
+           
+            </StackPanel.Resources>
+            <TextBlock>A:</TextBlock>
+            <TextBox Text="{Binding TeamA.Score, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock>B:</TextBlock>
+            <TextBox Text="{Binding TeamB.Score, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock>C:</TextBlock>
+            <TextBox Text="{Binding TeamC.Score, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock>D:</TextBlock>
+            <TextBox Text="{Binding TeamD.Score, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock>Time:</TextBlock>
+            <TextBox Text="{Binding Seconds, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="Margin" Value="10" />
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Guessed" Command="{Binding GuessedCommand}" />
+            <Button Content="Skipped" Command="{Binding SkippedCommand}" />
+            <Button Content="Next Word" Command="{Binding NextWordCommand}" />
+        </StackPanel>
+    </StackPanel>
+</Window>
