@@ -95,11 +95,15 @@ namespace Charades
             OnPropertyChanged(() => Seconds);
         }
 
-        public string TimeRemaining => TimeSpan.FromSeconds(Seconds).ToString(@"mm\:ss");
+        public string TimeRemaining => TimeSpan.FromSeconds(Seconds).ToString(@"m\:ss");
 
         private void AdvanceWord()
         {
             _wordIndex++;
+            if (_wordIndex >= _words.Count) {
+                _wordIndex = 0;
+            }
+
             OnPropertyChanged(() => CurrentWord);
         }
 

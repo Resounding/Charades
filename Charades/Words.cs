@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Documents;
+using System.Linq;
 
 namespace Charades
 {
@@ -41,7 +41,20 @@ namespace Charades
                 "Till death do us part",
                 "Tying the knot",
                 "Mother of the Bride",
-            });
+                "Marriage License",
+                "Immanuel URC",
+                "Wedding Bells",
+                "Confetti",
+                "Love",
+                "Cupid",
+                "Something Old, Something New",
+                "Toast",
+                "Limousine",
+                "Home Sweet Home",
+                "Updo",
+                "Grow Old Together"
+                }.OrderBy(s => s.Split(' ').First().Reverse().First())
+            );
         }
     }
 }

@@ -63,9 +63,16 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding TimeRemaining}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="120" />
 
         <DockPanel LastChildFill="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
-            <TextBlock DockPanel.Dock="Top" Text="{Binding CurrentTeam.Name, StringFormat=Now Guessing: {0}}" FontSize="48" Padding="10" HorizontalAlignment="Center" />
-            <Border DockPanel.Dock="Top" BorderThickness="5" BorderBrush="{Binding CurrentTeam.Colour}" />
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="120" Text="{Binding CurrentWord}" />
+            <Border DockPanel.Dock="Top" BorderThickness="5" BorderBrush="{Binding CurrentTeam.Colour}">
+                <TextBlock DockPanel.Dock="Top" Text="{Binding CurrentTeam.Name, StringFormat=Now Guessing: {0}}" FontSize="48" Padding="10" HorizontalAlignment="Center" />    
+            </Border>
+            <Border>
+                <Border.Background>
+                    <ImageBrush ImageSource="lace.jpg" />
+                </Border.Background>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="120" Text="{Binding CurrentWord}" />
+            </Border>
+            
         </DockPanel>
         
         <GridSplitter Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Width="5" />
