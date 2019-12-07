@@ -123,7 +123,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="lace.jpg" />
+    <Resource Include="bg.jpg" />
     <Content Include="buzz.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

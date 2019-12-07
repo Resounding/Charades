@@ -21,7 +21,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Padding="20" HorizontalAlignment="Center" FontSize="60" FontFamily="Lucida Handwriting" Text="Jessy &amp; Nate's Wedding: Charades" />
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Padding="20" HorizontalAlignment="Center" FontSize="60" FontFamily="Lucida Handwriting" Text="Immanuel URC Teen Club Charades" />
         
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
             <StackPanel.Resources>
@@ -68,9 +68,9 @@
             </Border>
             <Border>
                 <Border.Background>
-                    <ImageBrush ImageSource="lace.jpg" />
+                    <ImageBrush ImageSource="bg.jpg" Opacity="0.5" />
                 </Border.Background>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="120" Text="{Binding CurrentWord}" />
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="120" Opacity="1.0" Text="{Binding CurrentWord}" />
             </Border>
             
         </DockPanel>
