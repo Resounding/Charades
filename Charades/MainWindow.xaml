@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Charades"
         mc:Ignorable="d"
-        Title="Nate &amp; Jessy's Wedding"
+        Title="Marieke &amp; Tim"
         WindowState="Maximized"
         WindowStyle="None"
         d:DataContext="{d:DesignInstance local:ViewModel}"
@@ -21,7 +21,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Padding="20" HorizontalAlignment="Center" FontSize="60" FontFamily="Lucida Handwriting" Text="Immanuel URC Teen Club Charades" />
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Padding="20" HorizontalAlignment="Center" FontSize="60" FontFamily="Lucida Handwriting" Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}" />
         
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
             <StackPanel.Resources>
@@ -41,22 +41,8 @@
                 <DockPanel.Background>
                     <SolidColorBrush Color="{Binding Colour}" />
                 </DockPanel.Background>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Name}" />
-                <TextBlock DockPanel.Dock="Right" Text="{Binding Score}" />
-            </DockPanel>
-            <DockPanel LastChildFill="False" DataContext="{Binding TeamC}">
-                <DockPanel.Background>
-                    <SolidColorBrush Color="{Binding Colour}" />
-                </DockPanel.Background>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Name}" />
-                <TextBlock DockPanel.Dock="Right" Text="{Binding Score}" />
-            </DockPanel>
-            <DockPanel LastChildFill="False" DataContext="{Binding TeamD}">
-                <DockPanel.Background>
-                    <SolidColorBrush Color="{Binding Colour}" />
-                </DockPanel.Background>
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Name}" />
-                <TextBlock DockPanel.Dock="Right" Text="{Binding Score}" />
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Name}" Foreground="White" />
+                <TextBlock DockPanel.Dock="Right" Text="{Binding Score}" Foreground="White" />
             </DockPanel>
         </StackPanel>
         
@@ -64,11 +50,11 @@
 
         <DockPanel LastChildFill="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
             <Border DockPanel.Dock="Top" BorderThickness="5" BorderBrush="{Binding CurrentTeam.Colour}">
-                <TextBlock DockPanel.Dock="Top" Text="{Binding CurrentTeam.Name, StringFormat=Now Guessing: {0}}" FontSize="48" Padding="10" HorizontalAlignment="Center" />    
+                <TextBlock DockPanel.Dock="Top" Text="{Binding CurrentTeam.Name, StringFormat=Now Guessing: {0}}" Foreground="{Binding CurrentTeam.Colour}" FontSize="48" Padding="10" HorizontalAlignment="Center" />    
             </Border>
             <Border>
                 <Border.Background>
-                    <ImageBrush ImageSource="bg.jpg" Opacity="0.5" />
+                    <ImageBrush ImageSource="couple.jpg" Opacity="0.5" Stretch="Uniform" AlignmentY="Top" />
                 </Border.Background>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="120" Opacity="1.0" Text="{Binding CurrentWord}" />
             </Border>

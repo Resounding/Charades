@@ -32,10 +32,8 @@
                     <Setter Property="FontSize" Value="36" />
                 </Style>
             </StackPanel.Resources>
-            <Button Content="Team A" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamA}" Foreground="{Binding TeamA.Colour}" />
-            <Button Content="Team B" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamB}" Foreground="{Binding TeamB.Colour}" />
-            <Button Content="Team C" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamC}" Foreground="{Binding TeamC.Colour}" />
-            <Button Content="Team D" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamD}" Foreground="{Binding TeamD.Colour}" />
+            <Button Content="{Binding TeamA.Name}" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamA}" Foreground="{Binding TeamA.Colour}" />
+            <Button Content="{Binding TeamB.Name}" Command="{Binding SetTeamCommand}" CommandParameter="{Binding TeamB}" Foreground="{Binding TeamB.Colour}" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -70,17 +68,11 @@
                     <Setter Property="FontSize" Value="16" />
                 </Style>
             </StackPanel.Resources>
-            <TextBlock>A:</TextBlock>
+            <TextBlock Text="{Binding TeamA.Name}" />
             <TextBox Text="{Binding TeamA.Score, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock>B:</TextBlock>
+            <TextBlock Text="{Binding TeamB.Name}" />
             <TextBox Text="{Binding TeamB.Score, UpdateSourceTrigger=PropertyChanged}" />
-
-            <TextBlock>C:</TextBlock>
-            <TextBox Text="{Binding TeamC.Score, UpdateSourceTrigger=PropertyChanged}" />
-
-            <TextBlock>D:</TextBlock>
-            <TextBox Text="{Binding TeamD.Score, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock>Time:</TextBlock>
             <TextBox Text="{Binding Seconds, UpdateSourceTrigger=PropertyChanged}" />

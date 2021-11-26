@@ -1,23 +1,23 @@
 ﻿using Prism.Mvvm;
+using System.Windows.Media;
 
-namespace Charades
+namespace Charades;
+
+public class Team : BindableBase
 {
-    public class Team : BindableBase
+    public Team(string name, Color colour)
     {
-        public Team(string name, string colour)
-        {
-            Name = name;
-            Colour = colour;
-        }
+        Name = name;
+        Colour = colour;
+    }
 
-        public string Name { get; }
-        public string Colour { get; }
+    public string Name { get; }
+    public Color Colour { get; }
 
-        private int _score;
-        public int Score
-        {
-            get { return _score; }
-            set { SetProperty(ref _score, value); }
-        }
+    private int _score;
+    public int Score
+    {
+        get { return _score; }
+        set { SetProperty(ref _score, value); }
     }
 }

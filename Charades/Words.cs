@@ -1,131 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.SymbolStore;
-using System.Linq;
+﻿using System.IO;
+using System.Reflection;
 
-namespace Charades
+namespace Charades;
+
+public class Words : List<string>
 {
-    public class Words : List<string>
+    public Words()
     {
-        public Words()
-        {
-            AddRange(new[] {
-                    "ping pong",
-                    "snowball",
-                    "roof",
-                    "fly",
-                    "fang",
-                    "bicycle",
-                    "bear",
-                    "cape",
-                    "puppet",
-                    "piano",
-                    "lipstick",
-                    "salute",
-                    "hula hoop",
-                    "penguin",
-                    "banana peel",
-                    "whisper",
-                    "popsicle",
-                    "Frankenstein",
-                    "earthquake",
-                    "yo yo",
-                    "road",
-                    "rain",
-                    "alarm",
-                    "clock",
-                    "dog leash",
-                    "chop",
-                    "pajamas",
-                    "slam dunk",
-                    "fiddle",
-                    "seashell",
-                    "jog",
-                    "seesaw",
-                    "nap",
-                    "cheerleader",
-                    "blind",
-                    "beg",
-                    "shopping cart",
-                    "limbo",
-                    "newspaper",
-                    "twist",
-                    "rhinoceros",
-                    "cow",
-                    "tickle",
-                    "fetch",
-                    "violin",
-                    "Bible",
-                    "cage",
-                    "cello",
-                    "braid",
-                    "skateboard",
-                    "stairs",
-                    "trumpet",
-                    "mop",
-                    "shovel",
-                    "money",
-                    "soap",
-                    "saddle",
-                    "wink",
-                    "tree",
-                    "think",
-                    "church",
-                    "giraffe",
-                    "lion",
-                    "cat",
-                    "elephant",
-                    "cow",
-                    "mouse",
-                    "gorilla",
-                    "horse",
-                    "rabbit",
-                    "monkey",
-                    "dog",
-                    "fish",
-                    "Brushing teeth",
-                    "Building a sandcastle",
-                    "Dancing",
-                    "Driving a car",
-                    "Opening a gift",
-                    "Playing baseball",
-                    "Shoveling snow",
-                    "Swimming",
-                    "Skateboarding",
-                    "Tying a shoe",
-                    "Walking a dog",
-                    "Yoga",
-                    "Beauty and the Beast",
-                    "Chicken Little",
-                    "Cinderella",
-                    "Goldilocks and The Three Bears",
-                    "Little Red Riding Hood",
-                    "Rapunzel",
-                    "Snow White and the Seven Dwarves",
-                    "Sleeping Beauty",
-                    "The Boy Who Cried Wolf",
-                    "Banana",
-                    "Bubblegum",
-                    "French fries",
-                    "Ice cream cone",
-                    "Jello",
-                    "Pizza",
-                    "Popcorn",
-                    "Sandwich",
-                    "Spaghetti",
-                    "Taco",
-                    "Archery",
-                    "Baseball",
-                    "Basketball",
-                    "Football",
-                    "Golf",
-                    "Skiing",
-                    "Soccer",
-                    "Tennis",
-                }
-                .Select(s => s.ToLower())
-                .Distinct()
-                .OrderBy(s => s.Split(' ').First().Reverse().First())
-            );
-        }
+        var location = Assembly.GetExecutingAssembly().Location;
+        var folder = Path.GetDirectoryName(location);
+        var file = Path.Combine(folder, "words.txt");
+        var lines = File.ReadAllLines(file);
+
+        var random = new Random();
+
+        AddRange(lines.OrderBy(_ => random.Next()));
     }
 }

@@ -1,11 +1,10 @@
-﻿namespace Charades
+﻿namespace Charades;
+
+public partial class RemoteControl
 {
-    public partial class RemoteControl
+    public RemoteControl(ViewModel vm)
     {
-        public RemoteControl(ViewModel vm)
-        {
-            InitializeComponent();
-            DataContext = vm;
-        }
+        InitializeComponent();
+        DataContext = vm;
     }
 }
